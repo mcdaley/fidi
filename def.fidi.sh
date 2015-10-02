@@ -6,6 +6,13 @@
 #
 ################################################################################
 
+################################################################################
+# TODO: 10/02/2015
+# - IGNORE THIS FILE FOR NOW AS I'M NOT SURE HOW IT WILL INTEGRATE WITH THE
+#   FINAL PRODUCT
+################################################################################
+
+
 #
 # Define global RDF environment variables
 #
@@ -64,11 +71,11 @@ esac
 #
 
 ##shell_utils=${ACUSYS_DIR}/script/rdf_utils.sh
-shell_utils=/home/qbmgr/script/careerqb_utils.sh
+shell_utils=${FIDI_HOME}/fidi_utils.sh
 
 if [ ! -f "${shell_utils}" ]
 then
-    echo "ERROR: Unable to find CareerQB utility functions: ${shell_utils}"
+    echo "ERROR: Unable to find FIDI utility functions: ${shell_utils}"
     echo "ERROR: Exiting ${program}..."
     exit -1
 else

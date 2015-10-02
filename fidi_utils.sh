@@ -81,14 +81,16 @@ msg()
 ###################################################################################
 setup_logging()
 {
+  msg "DEBUG: Entered setup_logging, params equal $*"
   while getopts m:l:h option
   do
-  	case "$option"
+  	case "${option}"
   	in
 	    h) echo "Usage: setup_logginig -l <log file> [-m <max files>] [-h]"
 	       return 0;
 	       ;;
       l) FIDI_LOG_FILE=${OPTARG};      export FIDI_LOG_FILE
+         msg "DEBUG: Set the -l options with ${FIDI_LOG_FILE}"
          ;;
       m) FIDI_MAX_LOG_FILES=${OPTARG}; export FIDI_MAX_LOG_FILES
          ;;

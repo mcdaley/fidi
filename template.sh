@@ -55,6 +55,22 @@ process_cmd_line_args()
       esac
     done
 
+    ############################################################################
+    # TODO: HANDLE MANDATORY OPTIONS BY SETTING DEFAULT VALUES OR EXITING
+    #
+    # if [ ! $MANDATORY ]
+    #   msg   "ERROR: MANDATORY is required"
+    #   usage
+    #   exit  -1
+    # fi
+    #
+    # OR
+    # 
+    # if [ ! $MANDATORY ]
+    #   MANDATORY="DEFAULT_VALUE"
+    # fi
+    ############################################################################
+    
     return 0
 }
 
@@ -66,7 +82,12 @@ source_fidi_env()
     ############################################################################
     # TODO: DEFINE THE CORRECT CareerQB ENVIRONMENT PROFILE
     ############################################################################
-    shell_utils=/Users/mike/projects/bash/fidi/fidi_utils.sh
+    if [ "${FIDI_HOME}"]
+    then
+      shell_utils=${FIDI_HOME}/fidi_utils.sh
+    else
+      shell_utils=${HOME}/scripts/fidi/fidi_utils.sh
+    fi
 
     if [ ! -f "${shell_utils}" ]
     then
@@ -89,7 +110,7 @@ source_fidi_env
 
 process_cmd_line_args $*
 
-print_header ${program}
+print_header ${program} $*
 
 ############################################################################
 # TODO: WRITE THE SCRIPT
