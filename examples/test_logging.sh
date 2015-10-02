@@ -14,6 +14,8 @@ program=`basename ${0}`
 #
 . /Users/mike/projects/bash/fidi/fidi_utils.sh
 
+print_banner ${program} $*
+
 #
 # Turn on logging
 #
